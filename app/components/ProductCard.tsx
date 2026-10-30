@@ -1,0 +1,4 @@
+import Link from 'next/link';
+import type { Product } from '@/app/lib/products';
+import { money } from '@/app/lib/products';
+export default function ProductCard({ product }: { product: Product }) { return <article className="product-card"><Link href={`/products/${product.id}`} className="product-image-wrap">{product.badge && <span className="badge">{product.badge}</span>}<img src={product.image} alt={product.name} className="product-image" /></Link><div className="product-info"><p className="eyebrow">{product.category}</p><Link href={`/products/${product.id}`} className="product-name">{product.name}</Link><div className="product-bottom"><strong>{money(product.price)}</strong><Link href={`/products/${product.id}`} className="view-link" aria-label={`View ${product.name}`}>View details ↗</Link></div></div></article>; }
